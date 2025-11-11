@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Guitar Pro Player</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@coderline/alphatab@1.5.0/dist/alphaTab.min.css" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="page-header">
+      <h1>Guitar Pro Player</h1>
+      <p>Upload a Guitar Pro file (<code>.gp*</code>) and play it using AlphaTab.</p>
+    </header>
+
+    <main>
+      <section class="uploader" aria-labelledby="upload-title">
+        <h2 id="upload-title">Upload</h2>
+        <label class="file-input">
+          <span>Choose a Guitar Pro file</span>
+          <input type="file" id="gp-file" accept=".gp,.gp3,.gp4,.gp5,.gpx" />
+        </label>
+        <p class="file-status" id="file-status">No file selected</p>
+      </section>
+
+      <section class="player" aria-labelledby="player-title">
+        <h2 id="player-title">Player</h2>
+        <div class="controls">
+          <button type="button" id="play" disabled>Play</button>
+          <button type="button" id="stop" disabled>Stop</button>
+          <label class="tempo">
+            Tempo
+            <input type="range" id="tempo" min="40" max="240" value="120" />
+            <span id="tempo-value">100%</span>
+          </label>
+        </div>
+        <div class="track-list" id="track-list" aria-live="polite"></div>
+        <div class="at-root" id="alpha-tab" role="region" aria-label="Score notation"></div>
+      </section>
+
+      <section class="messages" aria-live="polite" id="messages"></section>
+    </main>
+
+    <footer class="page-footer">
+      <p>
+        Powered by
+        <a href="https://www.alphatab.net" target="_blank" rel="noopener">AlphaTab</a>.
+      </p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@coderline/alphatab@1.5.0/dist/alphaTab.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
